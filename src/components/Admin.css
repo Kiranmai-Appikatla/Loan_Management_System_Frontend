@@ -1,0 +1,382 @@
+/* Admin.css - Updated for Modern LoanVerse Theme */
+
+/* --- Base Layout & Typography --- */
+.admin-container {
+    min-height: 100vh;
+    background: #f8f9fa; /* Light, clean background */
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.admin-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a004b; /* Dark Purple */
+    margin-bottom: 2rem;
+    border-left: 6px solid #6a5acd; /* Primary Purple accent */
+    padding-left: 15px;
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a004b;
+    margin-bottom: 1.5rem;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed #eee;
+}
+
+/* --- Input & Select Styles --- */
+.input-group,
+.status-toggle-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.admin-input,
+.admin-select {
+    padding: 0.85rem 1rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1rem;
+    flex-grow: 1;
+    transition: all 0.2s ease;
+    background: #fff;
+}
+
+.admin-input:focus,
+.admin-select:focus {
+    border-color: #6a5acd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.1);
+}
+
+/* --- Button Styles --- */
+.add-button {
+    background: #6a5acd; /* Primary Purple */
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.add-button:hover {
+    background: #5c4baf;
+    transform: translateY(-1px);
+}
+
+.remove-button,
+.edit-button {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.remove-button {
+    background: #f44336; /* Red */
+    color: #fff;
+}
+.remove-button:hover {
+    background: #d32f2f;
+}
+.remove-button:disabled {
+    background: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.edit-button {
+    background: #6a5acd; /* Primary Purple */
+    color: white;
+}
+.edit-button:hover {
+    background: #5c4baf;
+}
+
+.danger-button {
+    background: #ff5722; /* Deep Orange for destructive action */
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background 0.2s;
+}
+.danger-button:hover {
+    background: #e64a19;
+}
+
+
+/* --- User List & Cards --- */
+.users-panel {
+    margin-top: 2rem;
+}
+
+.user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #fdfdff; /* Very light background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+    transition: transform 0.15s ease;
+}
+.user-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(106, 90, 205, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1a004b;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Role Badges */
+.role-badge {
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.role-badge.borrower { background: #e0e0ff; color: #6a5acd; }
+.role-badge.lender { background: #e8f5e9; color: #2e7d32; }
+.role-badge.analyst { background: #fff3e0; color: #ef6c00; }
+.role-badge.admin { background: #ffcdd2; color: #c62828; }
+
+
+/* --- System Control Panel --- */
+.system-control-panel {
+    background: #fdfdff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e8eef7;
+    margin-bottom: 2rem;
+}
+
+.status-toggle-group {
+    margin-bottom: 10px;
+}
+
+.status-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.system-status-badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.system-status-badge.open {
+    background: #e8f5e9; 
+    color: #2e7d32; 
+}
+
+.system-status-badge.maintenance {
+    background: #ffe0b2; 
+    color: #ef6c00; 
+}
+
+.toggle-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+    flex-grow: 0;
+}
+
+.toggle-button.maintenance {
+    background: #ff5722; /* Reddish-Orange */
+    color: white;
+}
+.toggle-button.maintenance:hover {
+    background: #e64a19;
+}
+
+.toggle-button.open {
+    background: #4caf50; 
+    color: white;
+}
+.toggle-button.open:hover {
+    background: #388e3c;
+}
+
+.system-hint {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 3px solid #6a5acd;
+    background: #f9f9ff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* --- Modal Styles --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    max-width: 90%;
+}
+
+.modal-content h4 {
+    margin-top: 0;
+    color: #1a004b;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.input-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-group-vertical label {
+    font-weight: 600;
+    color: #555;
+    margin-top: 5px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.secondary-button {
+    background: #eceff1;
+    color: #455a64;
+}
+.secondary-button:hover {
+    background: #cfd8dc;
+}
+
+.reset-button {
+    background: #ffb300; 
+    color: white;
+}
+.reset-button:hover {
+    background: #fb8c00;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 1rem;
+    }
+    .admin-content {
+        padding: 1.5rem;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+    .status-toggle-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .user-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .user-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2rem;
+  color: #1a004b;
+  font-weight: 800;
+}
+
+.dashboard-header p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.home-btn {
+  background: #6a5acd;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.home-btn:hover {
+  background: #5c4baf;
+  transform: translateY(-2px);
+}

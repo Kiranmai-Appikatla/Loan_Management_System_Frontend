@@ -1,0 +1,128 @@
+/*
+ * NOTE: The background/centering for the modal is already handled 
+ * by the .overlay and .modal styles in Home.css.
+ * We'll use the .login-container and .login-box to style the content within the modal.
+ */
+
+.login-container {
+  /* Remove any conflicting background/positioning for when it's inside the modal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; is no longer needed here */
+  /* Remove the old background gradient */
+  background: none; 
+  padding: 0;
+}
+
+.login-box {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px; /* Slightly smaller radius for modern feel */
+  box-shadow: none; /* Shadow is handled by the .modal in Home.css */
+  width: 100%;
+  max-width: 420px;
+  animation: none; /* Animation handled by .modal */
+  /* Remove position: relative; if it was here, as the modal handles it */
+}
+
+.login-title {
+  /* Dark purple color from the Home page logo */
+  color: #1a004b; 
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem; /* Slightly larger title */
+  font-weight: 700;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input,
+.login-select {
+  padding: 1rem;
+  /* Light gray border to match the clean design */
+  border: 1px solid #e0e0e0; 
+  border-radius: 8px; 
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f7f7f7; /* Very light background for input */
+}
+
+.login-input:focus,
+.login-select:focus {
+  /* Primary purple color on focus */
+  border-color: #6a5acd; 
+  outline: none;
+  /* Subtler focus shadow */
+  box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.2); 
+  background-color: white;
+}
+
+.login-info-text {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+.login-button {
+  /* Solid primary purple color */
+  background: #6a5acd; 
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.login-button:hover {
+  /* Darker purple on hover */
+  background: #5c4baf; 
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
+}
+
+.switch-button {
+  background: none;
+  border: none;
+  /* Primary purple color for link */
+  color: #6a5acd; 
+  margin-top: 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: color 0.3s ease;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+}
+
+.switch-button:hover {
+  color: #5c4baf;
+  text-decoration: underline;
+}
+
+/* Remove unused keyframes */
+/* @keyframes fadeIn is no longer necessary here */
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 1.5rem;
+  }
+  
+  .login-title {
+    font-size: 1.75rem;
+  }
+}
