@@ -13,21 +13,47 @@ export default function Lender() {
 
   if (!currentUser) return <p>Please log in to access your dashboard.</p>;
 
-  const handleSubmit = (e) => {
+  // ✅ ONLY CHANGE IS HERE
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const newLoan = {
-      id: Date.now(),
       amount: parseFloat(amount),
       interestRate: parseFloat(interestRate),
       duration: parseInt(duration),
-      lender: currentUser.name,
-      status: "available",
-      requests: [],
+      lenderId: currentUser.id,
     };
-    setLoans([...loans, newLoan]);
-    setAmount("");
-    setInterestRate("");
-    setDuration("");
+
+    try {
+      const response = await fetch("http://localhost:8080/loans/offer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newLoan),
+      });
+
+      const savedLoan = await response.json();
+
+      // keep frontend structure SAME
+      const frontendLoan = {
+        id: savedLoan.id || Date.now(),
+        amount: savedLoan.amount,
+        interestRate: savedLoan.interestRate,
+        duration: savedLoan.duration,
+        lender: currentUser.name,
+        status: "available",
+        requests: [],
+      };
+
+      setLoans([...loans, frontendLoan]);
+
+      setAmount("");
+      setInterestRate("");
+      setDuration("");
+    } catch (error) {
+      console.error("Error saving loan:", error);
+    }
   };
 
   const handleApproval = (loanId, borrowerName, approve) => {
@@ -39,9 +65,7 @@ export default function Lender() {
               ? {
                   ...req,
                   status: approve ? "approved" : "rejected",
-                  payments: approve
-                    ? req.payments
-                    : [],
+                  payments: approve ? req.payments : [],
                 }
               : req
           );
